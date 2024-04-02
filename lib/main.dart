@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import 'package:neet_flutter_app/controllers/theme_controller.dart';
 import 'package:neet_flutter_app/generated/l10n.dart';
 import 'package:neet_flutter_app/routes/route_helper.dart';
-import 'package:neet_flutter_app/utils/utils.dart';
+import 'package:neet_flutter_app/utils/miscellaneous.dart';
+import 'package:neet_flutter_app/widgets/no_internet_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'services/connectivity_service.dart';
@@ -23,11 +24,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool isConnected = true;
+  final ConnectivityService _connectivityService = Get.put(ConnectivityService());
 
   @override
   void initState() {
-    checkInternet();
     super.initState();
+    _connectivityService.checkInternetConnection();
   }
 
   @override
@@ -51,6 +53,9 @@ class _MyAppState extends State<MyApp> {
             navigatorKey: Get.key,
             debugShowCheckedModeBanner: false,
             initialRoute: RouteHelper.getSplashScreen(),
+            initialBinding: BindingsBuilder(() {
+              Get.lazyPut<ConnectivityService>(() => ConnectivityService());
+            }),
             getPages: RouteHelper.routes,
             defaultTransition: Transition.fadeIn,
             scrollBehavior: MyBehaviour(),
@@ -80,10 +85,6 @@ class _MyAppState extends State<MyApp> {
         );
       },
     );
-  }
-
-  Future<void> checkInternet() async {
-    isConnected = await ConnectivityService.instance.isConnectNetworkWithMessage(isHome: true, context: context);
   }
 }
 

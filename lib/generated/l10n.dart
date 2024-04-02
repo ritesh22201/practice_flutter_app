@@ -59,6 +59,86 @@ class S {
       args: []
     );
   }
+
+  /// `Previous year questions`
+  String get previousYearText {
+    return Intl.message(
+      'Previous year questions',
+      name: 'previousYearText',
+      desc: '',
+      args: []
+    );
+  }
+
+   /// `NEET previous years questions with tests and practice sets`
+  String get previousYearSubText {
+    return Intl.message(
+      'NEET previous years questions with tests series and practice sets.',
+      name: 'previousYearSubText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `Attempted tests`
+  String get attemptedTestText {
+    return Intl.message(
+      'Attempted tests',
+      name: 'attemptedTestText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `See your attempted test history with highlighted score.`
+  String get attemptedTestSubText {
+    return Intl.message(
+      'See your attempted tests histories with highlighted scores.',
+      name: 'attemptedTestText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `Syllabus`
+  String get syllabusText {
+    return Intl.message(
+      'Syllabus',
+      name: 'syllabusText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `A well organized chapter-wise syllabus for NEET aspirants.`
+  String get syllabusSubText {
+    return Intl.message(
+      'A well organized chapter-wise syllabus for NEET aspirants.',
+      name: 'syllabusSubText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `Bookmarked questions`
+  String get bookmarkedQuesText {
+    return Intl.message(
+      'Bookmarked questions',
+      name: 'bookmarkedQuesText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `Bookmarked questions from different test-series`
+  String get bookmarkedQuesSubText {
+    return Intl.message(
+      'Save/Bookmark your favourite questions for later interaction.',
+      name: 'bookmarkedQuesSubText',
+      desc: '',
+      args: []
+    );
+  }
 }
 
 

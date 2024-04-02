@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:neet_flutter_app/constants/color_constants.dart';
 import 'package:neet_flutter_app/constants/neet_assets.dart';
-import 'package:neet_flutter_app/utils/utils.dart';
+import 'package:neet_flutter_app/utils/miscellaneous.dart';
 // import 'package:responsive_sizer/responsive_sizer.dart';
 
 class NoInternetScreen extends StatelessWidget{

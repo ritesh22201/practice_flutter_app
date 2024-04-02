@@ -15,4 +15,14 @@ class NeetAssets {
   static const String botanyAnimation = '${animationPath}botany_animation.json';
   static const String zoologyAnimation = '${animationPath}zoology_animation.json';
   static const String noInternetAnimation = '${animationPath}no_internet_animation.json';
+  static const String pastYearAnimation = '${animationPath}past_year_animation.json';
+  static const String syllabusAnimation = '${animationPath}syllabus_animation.json';
+  static const String testAnimation = '${animationPath}test_animation.json';
+  static const String bookmarkAnimation = '${animationPath}bookmark_animation.json';
+
+  //=========================Images=======================================
+  static const String homeCarousel1 = '${imagePath}home_carousel1.jpg';
+  static const String homeCarousel2 = '${imagePath}home_carousel2.jpg';
+  static const String homeCarousel3 = '${imagePath}home_carousel3.jpg';
+  static const String homeCarousel4 = '${imagePath}home_carousel4.jpg';
 }

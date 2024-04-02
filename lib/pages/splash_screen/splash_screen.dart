@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:neet_flutter_app/constants/neet_assets.dart';
 import 'package:neet_flutter_app/routes/route_helper.dart';
+import 'package:neet_flutter_app/services/connectivity_service.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,13 +15,19 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final ConnectivityService connectivityService = Get.find<ConnectivityService>();
 
   @override
   void initState() {
     Timer(
       const Duration(seconds: 4),
       () {
-        Get.offNamed(RouteHelper.getHomePage());
+        if(connectivityService.isConnected.value && connectivityService.previousRoute == null){
+          Get.offNamed(RouteHelper.getHomePage());
+        }
+        else{
+          Get.offNamed(RouteHelper.getNoInternetScreen());
+        }
       },
     );
     super.initState();
