@@ -19,6 +19,9 @@ class NeetAssets {
   static const String syllabusAnimation = '${animationPath}syllabus_animation.json';
   static const String testAnimation = '${animationPath}test_animation.json';
   static const String bookmarkAnimation = '${animationPath}bookmark_animation.json';
+  static const String homeIconAnimation = '${animationPath}home_animation.json';
+  static const String mockIconAnimation = '${animationPath}mock_animation.json';
+  static const String profileIconAnimation = '${animationPath}profile_animation.json';
 
   //=========================Images=======================================
   static const String homeCarousel1 = '${imagePath}home_carousel1.jpg';

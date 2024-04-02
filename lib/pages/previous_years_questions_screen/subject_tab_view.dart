@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:neet_flutter_app/constants/color_constants.dart';
@@ -24,68 +23,80 @@ class SubjectTabView extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: previousYearQuesController.subjectList.length,
             itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {},
-                child: Container(
-                  margin: EdgeInsets.only(bottom: 15.px),
-                  decoration: BoxDecoration(
-                    color: ColorConstants.appWhite,
-                    borderRadius: BorderRadius.circular(8.px),
-                    boxShadow: [
-                      BoxShadow(
-                          color: ColorConstants.appGrey.withOpacity(0.2),
-                          spreadRadius: 1,
-                          blurRadius: 2,
-                          offset: const Offset(0, 1))
-                    ],
-                  ),
-                  padding: EdgeInsets.all(10.px),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: index == 0
-                            ? EdgeInsets.only(left: 6.px)
-                            : EdgeInsets.zero,
-                        child: Lottie.asset(
-                          index == 0
-                              ? NeetAssets.physicsAnimation
-                              : index == 1
-                                  ? NeetAssets.chemistryAnimation
-                                  : index == 2
-                                      ? NeetAssets.botanyAnimation
-                                      : NeetAssets.zoologyAnimation,
-                          width: index == 0 ? Device.width/10 : Device.width/8,
-                          fit: BoxFit.cover,
+              return Container(
+                height: 110.px,
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 15.px),
+                    decoration: BoxDecoration(
+                      color: ColorConstants.appWhite,
+                      borderRadius: BorderRadius.circular(8.px),
+                      boxShadow: [
+                        BoxShadow(
+                            color: ColorConstants.appGrey.withOpacity(0.2),
+                            spreadRadius: 1,
+                            blurRadius: 2,
+                            offset: const Offset(0, 1))
+                      ],
+                    ),
+                    padding: EdgeInsets.all(10.px),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: index == 0
+                              ? EdgeInsets.only(left: 6.px)
+                              : EdgeInsets.zero,
+                          child: Lottie.asset(
+                            index == 0
+                                ? NeetAssets.physicsAnimation
+                                : index == 1
+                                    ? NeetAssets.chemistryAnimation
+                                    : index == 2
+                                        ? NeetAssets.botanyAnimation
+                                        : NeetAssets.zoologyAnimation,
+                            width: index == 0 ? Device.width/10 : Device.width/8,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 20.px,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: index == 0 ? 4.px : 0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            AppText(
-                              previousYearQuesController.subjectList[index],
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.px,
-                            ),
-                            // SizedBox(height: 5.px,),
-                            SizedBox(
-                              width: 65.w,
-                              child: AppText(
-                                'Detailed topic-wise test series and practice sets.',
-                                color: ColorConstants.appGrey,
-                                fontSize: 12.px,
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
+                        SizedBox(
+                          width: 20.px,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: index == 0 ? 4.px : 0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              AppText(
+                                previousYearQuesController.subjectList[index],
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16.px,
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                              const SizedBox(height: 5,),
+                              SizedBox(
+                                width: 65.w,
+                                child: AppText(
+                                  'Detailed topic-wise test series and practice sets.',
+                                  color: ColorConstants.appGrey,
+                                  fontSize: 12.px,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
+                                ),
+                              ),
+                              const SizedBox(height: 8,),
+                              AppText(
+                                  'Year: 2002 - 2024',
+                                  color: ColorConstants.appGrey,
+                                  fontSize: 12.px,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
+                                  fontWeight: FontWeight.w500,
+                                )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               );

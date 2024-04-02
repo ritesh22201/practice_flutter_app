@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neet_flutter_app/constants/color_constants.dart';
+import 'package:neet_flutter_app/controllers/home_page_controller.dart';
+import 'package:neet_flutter_app/routes/route_constants.dart';
 import 'package:neet_flutter_app/widgets/custom_text_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MyAppBar extends StatelessWidget {
-  const MyAppBar({Key? key, this.appBarHeight, this.appBarTitle, this.isTextCentered = false, this.appBarColor = ColorConstants.appWhite, this.textColor = ColorConstants.appBlack}): super(key: key);
+  MyAppBar({super.key, this.appBarHeight, this.appBarTitle, this.isTextCentered = false, this.appBarColor = ColorConstants.appWhite, this.textColor = ColorConstants.appBlack});
+  final HomePageController controller = Get.find<HomePageController>();
 
   final String? appBarTitle;
   final double? appBarHeight;
@@ -25,6 +28,7 @@ class MyAppBar extends StatelessWidget {
           children: [
             IconButton(
                 onPressed: () {
+                  controller.updateIndex(0);
                   Get.back();
                 },
                 icon: Icon(
