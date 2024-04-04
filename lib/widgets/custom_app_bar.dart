@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neet_flutter_app/constants/color_constants.dart';
 import 'package:neet_flutter_app/controllers/home_page_controller.dart';
-import 'package:neet_flutter_app/routes/route_constants.dart';
 import 'package:neet_flutter_app/widgets/custom_text_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -29,6 +28,7 @@ class MyAppBar extends StatelessWidget {
             IconButton(
                 onPressed: () {
                   controller.updateIndex(0);
+                  // Get.toNamed(controller.pagesName[controller.currentIndex]['route'].toString());
                   Get.back();
                 },
                 icon: Icon(

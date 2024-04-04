@@ -18,19 +18,19 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> homeCategoryItems = [
-      S.of(context).previousYearText,
-      S.of(context).attemptedTestText,
-      S.of(context).syllabusText,
-      S.of(context).bookmarkedQuesText,
-    ];
+    // List<String> homeCategoryItems = [
+    //   S.of(context).previousYearText,
+    //   S.of(context).attemptedTestText,
+    //   S.of(context).syllabusText,
+    //   S.of(context).bookmarkedQuesText,
+    // ];
 
-    List<String> homeCategorySubItems = [
-      S.of(context).previousYearSubText,
-      S.of(context).attemptedTestSubText,
-      S.of(context).syllabusSubText,
-      S.of(context).bookmarkedQuesSubText,
-    ];
+    // List<String> homeCategorySubItems = [
+    //   S.of(context).previousYearSubText,
+    //   S.of(context).attemptedTestSubText,
+    //   S.of(context).syllabusSubText,
+    //   S.of(context).bookmarkedQuesSubText,
+    // ];
 
     return GetBuilder<HomePageController>(
       init: HomePageController(),
@@ -70,17 +70,14 @@ class Home extends StatelessWidget {
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: homePageController.homeCategoryName.length,
+                  itemCount: homePageController.categoryList.length,
                   itemBuilder: (context, index) {
+                    var item = homePageController.categoryList[index];
                     return Column(
                       children: [
                         InkWell(
                           onTap: () {
-                            homeCategoryItems[index] ==
-                                    S.of(context).previousYearText
-                                ? Get.toNamed(
-                                    RouteHelper.getPreviousYearQuesScreen())
-                                : null;
+                            Get.toNamed(homePageController.categoryList[index]['route'].toString());
                           },
                           child: Container(
                             height: 85.px,
@@ -99,25 +96,20 @@ class Home extends StatelessWidget {
                             child: Row(
                               children: [
                                 Padding(
-                                  padding: index == 0 || index == 2
-                                      ? EdgeInsets.only(left: 6.px)
+                                  padding: index == 0
+                                      ? EdgeInsets.only(left: 9.px) :
+                                        index == 2 ? EdgeInsets.only(left: 3.px) :
+                                        index == 3 ? EdgeInsets.only(left: 4.px)
                                       : EdgeInsets.zero,
                                   child: Lottie.asset(
-                                    index == 0
-                                        ? NeetAssets.pastYearAnimation
-                                        : index == 1
-                                            ? NeetAssets.testAnimation
-                                            : index == 2
-                                                ? NeetAssets.syllabusAnimation
-                                                : NeetAssets.bookmarkAnimation,
-                                    width: index == 0 || index == 2
-                                        ? 40.px
+                                    item['image'].toString(),
+                                    width: index == 0 ? 36.px : index == 3
+                                        ? 40.px : index == 2 ? 43.px
                                         : 50.px,
-                                    fit: BoxFit.cover,
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 20.px,
+                                  width: index == 0 ? 23.px : index == 1 ? 21.px : index == 2 ? 23.px : index == 3 ? 24.px : 17.px,
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(
@@ -127,7 +119,7 @@ class Home extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       AppText(
-                                        homeCategoryItems[index],
+                                        item['name'].toString(),
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16.px,
                                       ),
@@ -135,7 +127,7 @@ class Home extends StatelessWidget {
                                       SizedBox(
                                         width: 65.w,
                                         child: AppText(
-                                          homeCategorySubItems[index],
+                                          item['subname'].toString(),
                                           color: ColorConstants.appGrey,
                                           fontSize: 12.px,
                                           overflow: TextOverflow.ellipsis,

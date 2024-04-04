@@ -82,7 +82,7 @@ class PastYearsPaperView extends StatelessWidget{
                                     child: AppText('Give Test', color: ColorConstants.appGreen, fontWeight: FontWeight.w500,)
                                   ),
                                 ),
-                                const SizedBox(width: 10,),
+                                const SizedBox(width: 15,),
                                 SizedBox(
                                   width: 39.5.w,
                                   child: OutlinedButton(

@@ -40,9 +40,9 @@ class BottomBarItems extends StatelessWidget {
                       homePageController.pagesName[index]['image'].toString(),
                       width:
                            index == 1 || index == 3
-                              ? 25.px
+                              ? 25.px : index == 2 ? 40.px
                               : 30.px),
-                  SizedBox(height: index == 1 || index == 3 ? 7 : 5),
+                  SizedBox(height: index == 1 || index == 3 ? 7 : index == 2 ? 0 : 5),
                   AppText(
                     homePageController.pagesName[index]['name'].toString(),
                     fontSize: 11.px,

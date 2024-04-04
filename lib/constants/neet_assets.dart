@@ -28,4 +28,7 @@ class NeetAssets {
   static const String homeCarousel2 = '${imagePath}home_carousel2.jpg';
   static const String homeCarousel3 = '${imagePath}home_carousel3.jpg';
   static const String homeCarousel4 = '${imagePath}home_carousel4.jpg';
+  static const String declineCrossIcon = '${imagePath}decline_cross.jpeg';
+  static const String acceptTick = '${imagePath}accept_tick.jpeg';
+  static const String warningImg = '${imagePath}warning_img.png';
 }

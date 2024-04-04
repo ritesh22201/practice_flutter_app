@@ -40,17 +40,15 @@ class PreviousYearQuestionsScreen extends StatelessWidget {
                     tabs: [
                       AppText(TabItems.subjects.name[0].toUpperCase() + TabItems.subjects.name.substring(1), fontWeight: FontWeight.w500, color: ColorConstants.lightGrey),
                       AppText(TabItems.papers.name[0].toUpperCase() + TabItems.papers.name.substring(1), fontWeight: FontWeight.w500, color: ColorConstants.lightGrey),
-                      AppText(TabItems.mocks.name[0].toUpperCase() + TabItems.mocks.name.substring(1), fontWeight: FontWeight.w500, color: ColorConstants.lightGrey),
                     ], 
                   ),
                 )
               ],
             )),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
-            const SubjectTabView(),
-            const PastYearsPaperView(),
-            AppText('Content for tab 3'),
+            SubjectTabView(),
+            PastYearsPaperView(),
           ],
         ),
         bottomNavigationBar: GetBuilder<HomePageController>(
