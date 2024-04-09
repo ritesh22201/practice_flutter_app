@@ -152,6 +152,7 @@ class RestServices {
       }
 
       http.Response response = await http.post(requestedUri!, body: stringBody ?? jsonEncode(body), headers: headers );
+
       showRequestAndResponseLogs(response, headers);
 
       switch(response.statusCode){

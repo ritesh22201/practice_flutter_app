@@ -31,4 +31,5 @@ class NeetAssets {
   static const String declineCrossIcon = '${imagePath}decline_cross.jpeg';
   static const String acceptTick = '${imagePath}accept_tick.jpeg';
   static const String warningImg = '${imagePath}warning_img.png';
+  static const String googleLogo = '${imagePath}google_logo.png';
 }

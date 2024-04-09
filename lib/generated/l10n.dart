@@ -139,6 +139,96 @@ class S {
       args: []
     );
   }
+
+  /// `enter your full name`
+  String get fullNameText {
+    return Intl.message(
+      'enter your full name',
+      name: 'fullNameText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `enter your email`
+  String get emailHintText {
+    return Intl.message(
+      'enter your email address',
+      name: 'emailHintText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `enter your phone number`
+  String get phoneNumText {
+    return Intl.message(
+      'enter your phone number',
+      name: 'phoneNumText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `enter your password`
+  String get passwordText {
+    return Intl.message(
+      'enter password',
+      name: 'phoneNumText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `enter confirm password`
+  String get confirmPassword {
+    return Intl.message(
+      'enter confirm password',
+      name: 'confirmPassword',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `please enter your name`
+  String get fullNameValidationText {
+    return Intl.message(
+      'please enter your name',
+      name: 'fullNameText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `please enter valid email address`
+  String get validEmailText {
+    return Intl.message(
+      'please enter valid email address',
+      name: 'validEmailText',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `password and confirm password doesn't match`
+  String get validPassword {
+    return Intl.message(
+      "password and confirm password doesn't match",
+      name: 'validPassword',
+      desc: '',
+      args: []
+    );
+  }
+
+  /// `phone number should be of 10 digits`
+  String get phoneValidationText {
+    return Intl.message(
+      "phone number should be of 10 digits",
+      name: 'phoneValidationText',
+      desc: '',
+      args: []
+    );
+  }
 }
 
 

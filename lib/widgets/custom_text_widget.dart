@@ -13,6 +13,10 @@ class AppText extends StatelessWidget {
   final int maxLines;
   final TextScaler textScaleFactor;
   final TextWidthBasis textWidthBasis;
+  final TextDecoration? textDecoration;
+  final Color? decorationColor;
+  final TextDecorationStyle? decorationStyle;
+  final double? decorationThickness;
 
   AppText(
     this.text, {
@@ -27,6 +31,10 @@ class AppText extends StatelessWidget {
     this.maxLines = 1,
     this.textScaleFactor = const TextScaler.linear(1),
     this.textWidthBasis = TextWidthBasis.parent,
+    this.textDecoration,
+    this.decorationColor,
+    this.decorationStyle,
+    this.decorationThickness
   }) : super(key: key);
 
   @override
@@ -36,7 +44,11 @@ class AppText extends StatelessWidget {
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: fontWeight,
-        color: color
+        color: color,
+        decoration: textDecoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness
       ),
       textAlign: textAlign,
       textDirection: textDirection,

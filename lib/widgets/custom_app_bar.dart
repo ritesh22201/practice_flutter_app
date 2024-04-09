@@ -28,7 +28,6 @@ class MyAppBar extends StatelessWidget {
             IconButton(
                 onPressed: () {
                   controller.updateIndex(0);
-                  // Get.toNamed(controller.pagesName[controller.currentIndex]['route'].toString());
                   Get.back();
                 },
                 icon: Icon(
