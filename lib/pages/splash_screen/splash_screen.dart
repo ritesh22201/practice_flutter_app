@@ -6,6 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:neet_flutter_app/constants/neet_assets.dart';
 import 'package:neet_flutter_app/routes/route_helper.dart';
 import 'package:neet_flutter_app/services/connectivity_service.dart';
+import 'package:neet_flutter_app/utils/miscellaneous.dart';
 import 'package:neet_flutter_app/utils/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,8 +25,9 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(seconds: 4),
       () async {
         if(connectivityService.isConnected.value && connectivityService.previousRoute == null){
-          bool authenticatedUser = await getPrefBoolValue('userToken');
-          if(!authenticatedUser){
+          String? authenticatedUser = await getStringPrefValue('userToken');
+          logs('token --> $authenticatedUser');
+          if(authenticatedUser == null || authenticatedUser.isEmpty){
             Get.offNamed(RouteHelper.getLoginPage());
           }
           else{

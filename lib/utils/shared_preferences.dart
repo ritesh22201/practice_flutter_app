@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:get/get.dart';
+import 'package:neet_flutter_app/routes/route_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const String userToken = 'userToken';
@@ -49,7 +51,8 @@ Future<bool> removePrefAllLocalData(String key) async {
 
 Future<bool> getPrefBoolValue(String key) async{
   final prefs = await SharedPreferences.getInstance();
-  return prefs.getBool(key) ?? false;
+  bool? res = prefs.getBool(key);
+  return res ?? false;
 }
 
 setPrefBoolValue(String key, bool value) async {
@@ -99,7 +102,9 @@ removePrefValue(String key) async {
 
 clearPref() async {
   final prefs = await SharedPreferences.getInstance();
-  prefs.clear();
+  prefs.clear().then((value) {
+    Get.toNamed(RouteHelper.getLoginPage());
+  });
 }
 
 

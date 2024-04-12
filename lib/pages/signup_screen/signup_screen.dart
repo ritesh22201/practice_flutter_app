@@ -63,41 +63,41 @@ class SignupScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(
-                          width: 100.w,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              controller.validateSignupForm(context);
-                            },
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: ColorConstants.appPrimaryColor,
-                                padding: EdgeInsets.symmetric(vertical: 12.px)),
-                            child: AppText('Sign up',
-                                fontSize: 16.px,
-                                color: ColorConstants.appWhite,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ),
+                        // SizedBox(
+                        //   width: 100.w,
+                        //   child: ElevatedButton(
+                        //     onPressed: () {
+                        //       controller.validateSignupForm(context);
+                        //     },
+                        //     style: ElevatedButton.styleFrom(
+                        //         backgroundColor: ColorConstants.appPrimaryColor,
+                        //         padding: EdgeInsets.symmetric(vertical: 12.px)),
+                        //     child: AppText('Sign up',
+                        //         fontSize: 16.px,
+                        //         color: ColorConstants.appWhite,
+                        //         fontWeight: FontWeight.w500),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
                 ),
             ),
-        // bottomNavigationBar: Container(
-        //   margin: EdgeInsets.symmetric(horizontal: 24.px, vertical: 15.px),
-        //   child: ElevatedButton(
-        //     onPressed: () {
-        //       controller.validateSignupForm(context);
-        //     },
-        //     style: ElevatedButton.styleFrom(
-        //         backgroundColor: ColorConstants.appPrimaryColor,
-        //         padding: EdgeInsets.symmetric(vertical: 12.px)),
-        //     child: AppText('Sign up',
-        //         fontSize: 16.px,
-        //         color: ColorConstants.appWhite,
-        //         fontWeight: FontWeight.w500),
-        //   ),
-        // ),
+        bottomNavigationBar: controller.isLoading.value ? const SizedBox() : Container(
+          margin: EdgeInsets.symmetric(horizontal: 24.px, vertical: 15.px),
+          child: ElevatedButton(
+            onPressed: () {
+              controller.validateSignupForm(context);
+            },
+            style: ElevatedButton.styleFrom(
+                backgroundColor: ColorConstants.appPrimaryColor,
+                padding: EdgeInsets.symmetric(vertical: 12.px)),
+            child: AppText('Sign up',
+                fontSize: 16.px,
+                color: ColorConstants.appWhite,
+                fontWeight: FontWeight.w500),
+          ),
+        ),
       ),
     );
   }

@@ -14,3 +14,10 @@ String dateFormatter (DateTime date){
   String formattedDate = DateFormat('d MMM yyyy, h:mm a').format(currentDate);
   return formattedDate;
 }
+
+String profileDateFormatter (String date) {
+  DateTime parsedDate = DateTime.parse(date);
+
+  String formattedDate = DateFormat.yMMMM().format(parsedDate);
+  return '${formattedDate[0].toLowerCase()}${formattedDate.substring(1)}';
+} 

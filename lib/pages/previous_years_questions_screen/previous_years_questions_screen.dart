@@ -11,7 +11,7 @@ import 'package:neet_flutter_app/widgets/custom_text_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 
-enum TabItems{subjects, papers, mocks}
+enum TabItems{ subjects, papers }
 
 class PreviousYearQuestionsScreen extends StatelessWidget {
   const PreviousYearQuestionsScreen({super.key});
@@ -19,7 +19,7 @@ class PreviousYearQuestionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(108.px),

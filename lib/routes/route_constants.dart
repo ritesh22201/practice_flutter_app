@@ -7,4 +7,6 @@ class RouteConstants {
   static const String previousYearQuesScreen = '/previousYearQuesScreen';
   static const String mockTestsScreen = '/mocktestScreen';
   static const String myProfile = '/myProfile';
+  static const String successScreen = '/successScreen';
+  static const String editProfile = '/editProfile';
 }

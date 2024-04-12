@@ -40,11 +40,14 @@ class MyAppBar extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      AppText(
-                        appBarTitle.toString(),
-                        fontSize: 20.px,
-                        fontWeight: FontWeight.bold,
-                        color: textColor,
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: AppText(
+                          appBarTitle.toString(),
+                          fontSize: 20.px,
+                          fontWeight: FontWeight.bold,
+                          color: textColor,
+                        ),
                       ),
                     ],
                   ),

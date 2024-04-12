@@ -6,7 +6,6 @@ import 'package:neet_flutter_app/controllers/theme_controller.dart';
 import 'package:neet_flutter_app/generated/l10n.dart';
 import 'package:neet_flutter_app/routes/route_helper.dart';
 import 'package:neet_flutter_app/utils/miscellaneous.dart';
-import 'package:neet_flutter_app/widgets/no_internet_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'services/connectivity_service.dart';

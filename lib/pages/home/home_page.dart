@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:neet_flutter_app/constants/color_constants.dart';
-import 'package:neet_flutter_app/constants/neet_assets.dart';
 import 'package:neet_flutter_app/controllers/home_page_controller.dart';
-import 'package:neet_flutter_app/generated/l10n.dart';
 import 'package:neet_flutter_app/pages/home/home_page_helper.dart';
-import 'package:neet_flutter_app/routes/route_helper.dart';
 import 'package:neet_flutter_app/widgets/custom_text_widget.dart';
 import 'package:neet_flutter_app/widgets/home_app_bar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -18,20 +15,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // List<String> homeCategoryItems = [
-    //   S.of(context).previousYearText,
-    //   S.of(context).attemptedTestText,
-    //   S.of(context).syllabusText,
-    //   S.of(context).bookmarkedQuesText,
-    // ];
-
-    // List<String> homeCategorySubItems = [
-    //   S.of(context).previousYearSubText,
-    //   S.of(context).attemptedTestSubText,
-    //   S.of(context).syllabusSubText,
-    //   S.of(context).bookmarkedQuesSubText,
-    // ];
-
     return GetBuilder<HomePageController>(
       init: HomePageController(),
       initState: (state){
@@ -76,7 +59,7 @@ class Home extends StatelessWidget {
                     return Column(
                       children: [
                         InkWell(
-                          onTap: () {
+                          onTap: () {                
                             Get.toNamed(homePageController.categoryList[index]['route'].toString());
                           },
                           child: Container(

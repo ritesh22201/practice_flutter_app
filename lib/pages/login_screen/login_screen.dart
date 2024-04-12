@@ -6,6 +6,7 @@ import 'package:neet_flutter_app/controllers/home_page_controller.dart';
 import 'package:neet_flutter_app/controllers/login_controller.dart';
 import 'package:neet_flutter_app/controllers/sign_up_controller.dart';
 import 'package:neet_flutter_app/routes/route_helper.dart';
+import 'package:neet_flutter_app/widgets/app_loader.dart';
 import 'package:neet_flutter_app/widgets/app_non_border_text_field.dart';
 import 'package:neet_flutter_app/widgets/custom_app_bar.dart';
 import 'package:neet_flutter_app/widgets/custom_text_widget.dart';
@@ -14,19 +15,20 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
   final HomePageController controller = Get.put(HomePageController());
+  final SignupController signupController = Get.put(SignupController());
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(
       init: LoginController(),
       builder: (LoginController loginController) => Scaffold(
-        appBar: PreferredSize(
+        appBar: loginController.isLoading.value ? const PreferredSize(preferredSize: Size.fromHeight(0), child: SizedBox()) : PreferredSize(
             preferredSize: Size.fromHeight(65.px),
             child: MyAppBar(
               appBarHeight: 65.px,
               appBarTitle: 'login',
             )),
-        body: Container(
+        body: loginController.isLoading.value ? const AppLoader() : Container(
           padding: EdgeInsets.symmetric(horizontal: 24.px),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -67,13 +69,20 @@ class LoginScreen extends StatelessWidget {
                   name: 'Email*',
                   textController: loginController.emailController,
                   textInputType: TextInputType.emailAddress,
-                  hintText: 'enter your email'),
+                  hintText: 'enter your email',
+                  errorText: loginController.emailError.value,
+              ),
               SizedBox(height: 30.px),
               FormHelperView(
                   name: 'Password*',
                   textController: loginController.passwordController,
                   textInputType: TextInputType.visiblePassword,
-                  hintText: 'enter your password'),
+                  hintText: 'enter your password',
+                  errorText: loginController.passwordError.value,
+                  obscureText: !loginController.isPasswordVisible.value,
+                  suffixIcon: !loginController.isPasswordVisible.value ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
+                  onSuffixTap: loginController.togglePassword,
+                  ),
               SizedBox(height: 30.px),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -97,11 +106,13 @@ class LoginScreen extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: SafeArea(
+        bottomNavigationBar:loginController.isLoading.value ? const SizedBox() : SafeArea(
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: 24.px, vertical: 15.px),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                loginController.validateLoginForm(context);
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: ColorConstants.appPrimaryColor,
                   padding: EdgeInsets.symmetric(vertical: 12.px)),
@@ -123,13 +134,22 @@ class FormHelperView extends StatelessWidget {
       required this.name,
       required this.textController,
       required this.textInputType,
-      required this.hintText});
-  final SignupController controller = Get.put(SignupController());
+      required this.hintText,
+      this.errorText,
+      this.obscureText,
+      this.suffixIcon,
+      this.onSuffixTap
+     });
+  final SignupController controller = Get.find<SignupController>();
 
   final String? name;
   final TextEditingController? textController;
   final TextInputType? textInputType;
   final String? hintText;
+  final String? errorText;
+  final bool? obscureText;
+  final Icon? suffixIcon;
+  final Function()? onSuffixTap;
 
   @override
   Widget build(BuildContext context) {
@@ -140,9 +160,13 @@ class FormHelperView extends StatelessWidget {
           AppText(name.toString(), fontWeight: FontWeight.w500),
           SizedBox(height: 4.px),
           AppTextField(
+            errorText: errorText,
             controller: textController,
             inputType: textInputType,
             hintText: hintText,
+            obscureText: obscureText ?? false,
+            iconSuffix: suffixIcon,
+            onSuffixTap: onSuffixTap,
           ),
         ],
       ),

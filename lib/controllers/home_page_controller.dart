@@ -28,8 +28,8 @@ class HomePageController extends GetxController {
     {'image': NeetAssets.pastYearAnimation, 'name': 'Previous years questions', 'subname' : 'NEET previous years questions with tests series and practice sets.', 'route' : RouteHelper.getPreviousYearQuesScreen()},
     {'image': NeetAssets.mockIconAnimation, 'name': 'Mock tests', 'subname': 'Explore premium mock tests content everyday just for ₹1.', 'route' : RouteHelper.getMockTestsScreen()},
     {'image': NeetAssets.testAnimation, 'name': 'Attempted tests', 'subname': 'See your attempted tests histories with highlighted scores.', 'route' : ''},
-    {'image': NeetAssets.syllabusAnimation, 'name': 'Syllabus', 'subname' : 'A well organized chapter-wise syllabus for NEET aspirants.', 'route' : ''},
-    {'image': NeetAssets.bookmarkAnimation, 'name': 'Bookmarked questions', 'subname': 'Save/Bookmark your favourite questions for later interaction.', 'route' : ''}
+    {'image': NeetAssets.syllabusAnimation, 'name': 'View Syllabus', 'subname' : 'A well organized chapter-wise syllabus for NEET aspirants.', 'route' : ''},
+    {'image': NeetAssets.bookmarkAnimation, 'name': 'Saved questions', 'subname': 'Save/Bookmark your favourite questions for later interaction.', 'route' : ''}
   ].obs;
 
 

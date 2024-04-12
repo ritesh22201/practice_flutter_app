@@ -3,14 +3,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:neet_flutter_app/config/app_config.dart';
 import 'package:neet_flutter_app/generated/l10n.dart';
 import 'package:neet_flutter_app/routes/route_helper.dart';
 import 'package:neet_flutter_app/services/rest_services.dart';
-import 'package:neet_flutter_app/utils/miscellaneous.dart';
 import 'package:neet_flutter_app/utils/shared_preferences.dart';
 import 'package:neet_flutter_app/utils/string_extensions.dart';
 import 'package:neet_flutter_app/utils/validation_utils.dart';
+import 'package:neet_flutter_app/widgets/success_screen.dart';
 
 class SignupController extends GetxController {
   final TextEditingController fullNameController = TextEditingController();
@@ -24,6 +23,18 @@ class SignupController extends GetxController {
   RxString phoneNumberError = ''.obs;
   RxString confirmPasswordError = ''.obs;
   RxBool isLoading = false.obs;
+  RxBool isPasswordVisible = false.obs;
+  RxBool isConfirmPasswordVisible = false.obs;
+
+  void togglePassword() {
+    isPasswordVisible.value = !isPasswordVisible.value;
+    update();
+  }
+
+  void toggleConfirmPassword() {
+    isConfirmPasswordVisible.value = !isConfirmPasswordVisible.value;
+    update();
+  }
 
 
   void validateSignupForm(BuildContext context) {
@@ -50,6 +61,20 @@ class SignupController extends GetxController {
     else {
       phoneNumberError = ''.obs;
     }
+    
+    if(ValidationUtils.validateEmptyController(passwordController)){
+      passwordError = 'please ${S.of(context).passwordText}'.obs;
+    }
+    else {
+      passwordError = ''.obs;
+    }
+
+    if(ValidationUtils.validateEmptyController(confirmPasswordController)){
+      confirmPasswordError = 'please ${S.of(context).confirmPassword}'.obs;
+    }
+    else {
+      confirmPasswordError = ''.obs;
+    }
 
     if(ValidationUtils.compareValidator(passwordController, confirmPasswordController)) {
       passwordError = S.of(context).validPassword.obs;
@@ -60,7 +85,7 @@ class SignupController extends GetxController {
 
     update();
 
-    if(fullNameError.value.isEmpty && emailError.value.isEmpty && passwordError.value.isEmpty && phoneNumberError.value.isEmpty) {
+    if(fullNameError.value.isEmpty && emailError.value.isEmpty && passwordError.value.isEmpty && confirmPasswordError.value.isEmpty && phoneNumberError.value.isEmpty) {
       registerUser(context);
     }
   }
@@ -93,7 +118,7 @@ class SignupController extends GetxController {
             await setPrefStringValue('userId', responseMap['user']['_id']);
             await setPrefStringValue('userEmail', responseMap['user']['email']);
           }
-          responseMap['message'].toString().showSuccess();
+          Get.to(SuccessScreen(textMessage: responseMap['message']));
         }
         else{
           responseMap['message'].toString().showError();

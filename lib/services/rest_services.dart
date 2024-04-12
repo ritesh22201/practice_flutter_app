@@ -26,6 +26,7 @@ class RestConstants {
   final String deleteProfileVerifyOtp = 'v1/delete-profile/verify-otp';
   final String forgetPassword = 'v1/forget-password';
   final String forgetPasswordVerifyOtp = 'v1/forget-password/verify-otp';
+  final String userProfile = 'v1/user';
 }
 
 class RestServices {

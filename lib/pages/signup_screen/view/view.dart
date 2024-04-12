@@ -15,7 +15,7 @@ class RegistrationFormView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Obx(() => ListView(
       shrinkWrap: true,
       primary: false,
       children: [
@@ -79,6 +79,9 @@ class RegistrationFormView extends StatelessWidget {
                 textInputType: TextInputType.visiblePassword,
                 hintText: S.of(context).passwordText,
                 errorText: controller.passwordError.toString(),
+                suffixIcon: controller.isPasswordVisible.value ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
+                obscureText: !controller.isPasswordVisible.value ? true : false,
+                onSuffixTap: controller.togglePassword,
               ),
             SizedBox(height: 30.px),
             FormHelperView(
@@ -87,11 +90,14 @@ class RegistrationFormView extends StatelessWidget {
                 textInputType: TextInputType.visiblePassword,
                 hintText: S.of(context).confirmPassword,
                 errorText: controller.confirmPasswordError.toString(),
+                suffixIcon: controller.isConfirmPasswordVisible.value ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
+                obscureText: !controller.isConfirmPasswordVisible.value ? true : false,
+                onSuffixTap: controller.toggleConfirmPassword,
             )
           ],
         )
       ],
-    );
+    ));
   }
 }
 
@@ -102,7 +108,10 @@ class FormHelperView extends StatelessWidget {
       required this.textController,
       required this.textInputType,
       required this.hintText,
-      this.errorText
+      this.errorText,
+      this.obscureText,
+      this.suffixIcon,
+      this.onSuffixTap
      });
   final SignupController controller = Get.find<SignupController>();
 
@@ -111,6 +120,9 @@ class FormHelperView extends StatelessWidget {
   final TextInputType? textInputType;
   final String? hintText;
   final String? errorText;
+  final bool? obscureText;
+  final Icon? suffixIcon;
+  final Function()? onSuffixTap;
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +136,11 @@ class FormHelperView extends StatelessWidget {
             errorText: errorText,
             controller: textController,
             inputType: textInputType,
-            hintText: hintText),
+            hintText: hintText,
+            obscureText: obscureText ?? false,
+            iconSuffix: suffixIcon,
+            onSuffixTap: onSuffixTap,
+          ),
         ],
       ),
     );
