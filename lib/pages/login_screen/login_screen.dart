@@ -6,6 +6,7 @@ import 'package:neet_flutter_app/controllers/home_page_controller.dart';
 import 'package:neet_flutter_app/controllers/login_controller.dart';
 import 'package:neet_flutter_app/controllers/sign_up_controller.dart';
 import 'package:neet_flutter_app/routes/route_helper.dart';
+import 'package:neet_flutter_app/utils/miscellaneous.dart';
 import 'package:neet_flutter_app/widgets/app_loader.dart';
 import 'package:neet_flutter_app/widgets/app_non_border_text_field.dart';
 import 'package:neet_flutter_app/widgets/custom_app_bar.dart';
@@ -21,7 +22,8 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(
       init: LoginController(),
-      builder: (LoginController loginController) => Scaffold(
+      builder: (LoginController loginController) { 
+        return Scaffold(
         appBar: loginController.isLoading.value ? const PreferredSize(preferredSize: Size.fromHeight(0), child: SizedBox()) : PreferredSize(
             preferredSize: Size.fromHeight(65.px),
             child: MyAppBar(
@@ -83,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                   suffixIcon: !loginController.isPasswordVisible.value ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
                   onSuffixTap: loginController.togglePassword,
                   ),
-              SizedBox(height: 30.px),
+              SizedBox(height: 30.px), 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -123,7 +125,8 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      );
+      },
     );
   }
 }

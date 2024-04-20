@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:neet_flutter_app/constants/neet_assets.dart';
-import 'package:neet_flutter_app/routes/route_constants.dart';
 import 'package:neet_flutter_app/routes/route_helper.dart';
 
 class HomePageController extends GetxController {
@@ -32,6 +31,4 @@ class HomePageController extends GetxController {
     {'image': NeetAssets.bookmarkAnimation, 'name': 'Saved questions', 'subname': 'Save/Bookmark your favourite questions for later interaction.', 'route' : ''}
   ].obs;
 
-
-  List<int> homeCategoryName = [0, 1, 2, 3];
 }

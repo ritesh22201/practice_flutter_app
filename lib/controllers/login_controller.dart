@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neet_flutter_app/generated/l10n.dart';
 import 'package:neet_flutter_app/services/rest_services.dart';
+import 'package:neet_flutter_app/utils/miscellaneous.dart';
 import 'package:neet_flutter_app/utils/shared_preferences.dart';
 import 'package:neet_flutter_app/utils/string_extensions.dart';
 import 'package:neet_flutter_app/utils/validation_utils.dart';

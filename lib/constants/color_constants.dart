@@ -13,6 +13,7 @@ class ColorConstants {
   static const Color lightGrey = Color(0xFFF6F6F6);
   static const Color appTomatoRed = Color(0xFFFF0000);
   static const Color appRed = Color(0xFFC62828);
+  static const Color appBlueColor = Color(0xFF206EEB);
   static const Color appGreen = Color(0xFF2E9714);
   static const Color appLightGreen = Color(0xFF05A687);
   static const Color goProjectColor = Color(0xFFB1B1B1);
@@ -40,7 +41,7 @@ class ColorConstants {
   static const Color pinkIndicator = Color(0xffEE3175);
   static const Color lightIndicator = Color(0xffFF7575);
   static const Color borderColor = Color(0xffD9E2AD);
-  static const Color appPrimaryColor = Color(0xff5D0D8B);
+  static const Color appPrimaryColor = Color(0xFF8614D7);
   static const Color reviewColor = Color(0xffF5E3FF);
   static const Color appPrimaryLightPurple = Color(0xffF7EDFE);
   static const Color appLightPurpleColorBB = Color(0xff995DBB);

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:neet_flutter_app/constants/color_constants.dart';
 import 'package:neet_flutter_app/controllers/home_page_controller.dart';
+import 'package:neet_flutter_app/controllers/user_profile_controller.dart';
 import 'package:neet_flutter_app/pages/home/home_page_helper.dart';
 import 'package:neet_flutter_app/widgets/custom_text_widget.dart';
 import 'package:neet_flutter_app/widgets/home_app_bar.dart';
@@ -11,18 +12,15 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
-  final HomePageController controller = Get.put(HomePageController());
+  final UserProfileController userProfileController = Get.put(UserProfileController());
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomePageController>(
       init: HomePageController(),
-      initState: (state){
-        controller.update();
-      },
       builder: (HomePageController homePageController) => Scaffold(
         appBar: PreferredSize(
-            preferredSize: Size(100.w, 65.px), child: const HomeAppBar()),
+            preferredSize: Size(100.w, 85.px), child: HomeAppBar()),
         body: SingleChildScrollView(
           child: Container(
             color: ColorConstants.lightGrey,

@@ -33,6 +33,6 @@ class RouteHelper {
     GetPage(name: RouteConstants.mockTestsScreen, page: () => const MockTestsScreen()),
     GetPage(name: RouteConstants.myProfile, page: () => ProfileScreen()),
     GetPage(name: RouteConstants.successScreen, page: () => const SuccessScreen()),
-    GetPage(name: RouteConstants.editProfile, page: () => const EditProfile())
+    GetPage(name: RouteConstants.editProfile, page: () => EditProfile())
   ];
 }

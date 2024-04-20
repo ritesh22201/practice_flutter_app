@@ -9,6 +9,7 @@ class UserModel {
   DateTime? updatedAt;
   String? status;
   String? otp;
+  String? gender;
 
   UserModel({
     this.id,
@@ -19,7 +20,8 @@ class UserModel {
     this.createdAt,
     this.updatedAt,
     this.status,
-    this.otp
+    this.otp,
+    this.gender
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -32,7 +34,8 @@ class UserModel {
       createdAt: DateTime.parse(json['created_at']),
       updatedAt: DateTime.parse(json['updated_at']),
       status: json['status'],
-      otp: json['otp']
+      otp: json['otp'],
+      gender: json['gender']
     );
   }
 
@@ -46,7 +49,8 @@ class UserModel {
       'created_at' : createdAt,
       'updated_at' : updatedAt,
       'status' : status,
-      'otp' : otp
+      'otp' : otp,
+      'gender': gender
     };
   }
 }

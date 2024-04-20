@@ -30,9 +30,8 @@ class ProfileScreen extends StatelessWidget {
       initState: (state) {
         Future.delayed(const Duration(microseconds: 200), () async {
           String? id = await getStringPrefValue(userId);
-          String? token = await getStringPrefValue(userToken);
           await profileController.getUserData(
-              id: id.toString(), token: token.toString());
+              id: id.toString());
         });
       },
       builder: (UserProfileController controller) => Scaffold(
@@ -55,9 +54,9 @@ class ProfileScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           SizedBox(height: 10.px),
-                          AvatarImage(userName: controller.user!.name.toString()),
+                          AvatarImage(userName: controller.user?.name.toString() ?? ''),
                           SizedBox(height: 20.px),
-                          AppText(controller.user!.name.toString(),
+                          AppText(controller.user?.name.toString() ?? '',
                               fontSize: 22.px, fontWeight: FontWeight.w500),
                           SizedBox(height: 5.px),
                           AppText(

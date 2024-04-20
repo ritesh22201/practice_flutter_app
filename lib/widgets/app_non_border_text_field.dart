@@ -82,7 +82,7 @@ class AppTextField extends StatelessWidget {
             readOnly: readOnly!,
             onTap: onTap,
             style: TextStyle(
-              color: textColor ?? ColorConstants.appBlue,
+              color: readOnly! ? ColorConstants.appBlue.withOpacity(0.3) : textColor ?? ColorConstants.appBlue,
               fontSize: 14.px,
               fontWeight: FontWeight.w600
             ),

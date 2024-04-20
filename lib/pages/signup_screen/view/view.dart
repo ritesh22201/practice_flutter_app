@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:neet_flutter_app/constants/color_constants.dart';
 import 'package:neet_flutter_app/constants/neet_assets.dart';
@@ -21,7 +20,9 @@ class RegistrationFormView extends StatelessWidget {
       children: [
         SizedBox(height: 30.px),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            controller.registerWithGoogle();
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: ColorConstants.appWhite,
           ),

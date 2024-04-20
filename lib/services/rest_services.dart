@@ -27,6 +27,7 @@ class RestConstants {
   final String forgetPassword = 'v1/forget-password';
   final String forgetPasswordVerifyOtp = 'v1/forget-password/verify-otp';
   final String userProfile = 'v1/user';
+  final String googleAuthUser = 'auth/user';
 }
 
 class RestServices {
@@ -294,7 +295,7 @@ class RestServices {
     return responseData;
   }
 
-  Future<String?>? putRestCall({required String? endpoint, Map<String, dynamic>? body, String? addOns}) async {
+  Future<String?>? putRestCall({required String? endpoint, Map<String, dynamic>? body, String? addOns, bool show400Toast = true}) async {
     String? responseData;
     bool connected = await InternetConnectionChecker().hasConnection;
     if(!connected){
@@ -308,8 +309,7 @@ class RestServices {
       Uri? requestedUri = Uri.tryParse(requestURL);
 
       Map<String, String> headers = {'Content-Type' : 'application/json', 'Authorization' : authenticationToken.toString()};
-      http.Response response = await http.put(requestedUri!, headers: headers, body: body);
-
+      http.Response response = await http.put(requestedUri!, headers: headers, body: jsonEncode(body));
       showRequestAndResponseLogs(response, headers);
 
       switch(response.statusCode){

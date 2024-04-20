@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:neet_flutter_app/constants/color_constants.dart';
 import 'package:neet_flutter_app/widgets/custom_text_widget.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AvatarImage extends StatelessWidget {
-  const AvatarImage({super.key, required this.userName, this.width = 100, this.height = 100});
+  const AvatarImage({super.key, required this.userName, this.width = 100, this.height = 100, this.backgroundColor, this.textColor, this.fontSize});
 
-  final String userName;
+  final String? userName;
   final double width;
   final double height;
+  final Color? backgroundColor;
+  final Color? textColor;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context){
-    String initials = _getFirstAndLastName(userName);
+    String initials = userName!.isNotEmpty ? _getFirstAndLastName(userName.toString()) : '';
 
     return Container(
       width: width,
@@ -22,11 +24,11 @@ class AvatarImage extends StatelessWidget {
         border: Border.all(width: 1.5, color: ColorConstants.appBlack),
       ),
       child: CircleAvatar(
-        backgroundColor: const Color.fromARGB(255, 134, 20, 215),
+        backgroundColor: backgroundColor ?? ColorConstants.appPrimaryColor,
         child: AppText(
           initials,
-          fontSize: 35,
-          color: ColorConstants.appWhite,
+          fontSize: fontSize ?? 35,
+          color: textColor ?? ColorConstants.appWhite,
         ),
       ),
     );
